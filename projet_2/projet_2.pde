@@ -1,3 +1,5 @@
+//test1
+
 // Importer la bibliotheques "Sound" à partir de sketch 
 import processing.sound.*;
 
@@ -15,8 +17,8 @@ void setup () {
   noFill ();
   stroke (127, 255, 127);
   
-  SinOsc bip = new SinOsc(this);
-   //bip.play(220, 1);
+  //SinOsc bip = new SinOsc(this);
+      //bip.play(220, 1);
 }
 
 
