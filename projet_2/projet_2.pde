@@ -1,8 +1,8 @@
 import processing.sound.*; // IMPORTANT : importer la bibliotèque « sound » publiée par « The processing Foundation »
 
 float frequence = 440;
-int intensite = 30;
-int periodes = 3; // nombre de périodes à afficher sur la fenêtre
+int intensite = 16;
+int periodes = 1; // Nombre de périodes à afficher sur la fenêtre
 
 int decalage_y;
 
@@ -13,16 +13,13 @@ void setup() {
   decalage_y = height / 2;
   background(0);
 
-
   noFill();
-  stroke (127, 255, 127);
 
   bip = new SinOsc(this);
   bip.play(440, 1);
 
   println("ATTENTION : La barre qui défile ne correspond à rien pour l’instant.");
 }
-
 
 void draw() {
   // gestion des événements
@@ -37,16 +34,21 @@ void draw() {
 
   clear();
 
-  // représentation de la fréquence // À IMPLÉMENTER
-  float x = width - millis() % width;
-  line(x, 0, x, height);
-
   // représentation de l’onde et de l’intensité
+  stroke(127, 255, 127);
+  strokeWeight(1);
   beginShape();
   for (int i = 0 ; i < width ; i++) {
     vertex(i, sin(radians(i * periodes * 360/width)) * intensite + decalage_y);
   }
   endShape();
+
+  // représentation de la fréquence // À IMPLÉMENTER
+  stroke(255, 0, 0);
+  strokeWeight(5);
+  float x = millis() % width;
+  point(x, sin(radians(x * periodes * 360/width)) * intensite + decalage_y);
+
 }
 
 void mouseWheel(MouseEvent event) {
