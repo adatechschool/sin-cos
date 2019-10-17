@@ -27,8 +27,10 @@ void draw() {
     intensite = height - mouseY - decalage_y;
     bip.amp(norm(intensite, 0, height));
 
-    frequence = mouseX * 0.02;
+    frequence = mouseX * 200;
+    println(frequence);
     bip.freq(frequence);
+    bip.play(frequence,(norm(intensite,0,height)));
 }
   // mouseWheel() définie plus bas est appelée nativement par draw()
 
