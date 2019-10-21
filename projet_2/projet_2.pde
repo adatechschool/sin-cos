@@ -2,7 +2,7 @@ import processing.sound.*; // IMPORTANT : importer la bibliotèque « sound » p
 
 int frequence = 1;
 int intensite = 0;
-int nombrePeriode = 25; // à afficher sur la fenêtre
+int nombrePeriode = 1; // à afficher sur la fenêtre
 
 int decalageVertical;
 
@@ -26,20 +26,20 @@ void draw() {
 
     bip.play(map(frequence, 0, width, 20, 20000), norm(intensite, 0, height));
   }
-  if (keyPressed)
+  if (keyPressed) {
     if (key == '+')
       nombrePeriode++;
-    else if (key == '-')
+    if (key == '-')
       nombrePeriode--;
+  }
 
   // représentation graphique de l’onde
   clear();
   beginShape();
-  for (int i = 0 ; i < width ; i++)
+  for (int i = 0 ; i < width ; i++) {
     vertex(i, sin(radians(i * nombrePeriode * 360/width + frequence * millis())) * intensite + decalageVertical);
+  }
   endShape();
-  println(frequence * millis());
-  // Je lui donne un temps et une fréquence, il me renvoie un angle.
 }
 
 // mouseWheel() est appelée nativement par draw()
