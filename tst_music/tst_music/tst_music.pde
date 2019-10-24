@@ -14,7 +14,7 @@ int frequence = 1;
 int intensite = 0;
 int nombrePeriode = 1;
 int millis = 0;
-
+float volume = 0.5;
 int decalageVertical;
 
 void setup() {
@@ -25,7 +25,7 @@ void setup() {
   decalageVertical = height / 2;
   
   minim = new Minim(this);
-  ping = minim.loadFile("Miracle.mp3", 2048);
+  ping = minim.loadFile("Old_Town_Road.mp3", 2048);
 }
 
 void draw() {
@@ -38,13 +38,7 @@ void draw() {
 
     ping.play(millis);
   }
-  // clique souris
-  if (keyPressed) {
-    if (key == '+')
-      nombrePeriode++;
-    if (key == '-')
-      nombrePeriode--;
-  }
+
   // ligne qui bouge selon le son
    clear();
   for(int i = 0; i < ping.bufferSize() - 1; i++)
@@ -52,6 +46,19 @@ void draw() {
     line(i, height/2  + ping.left.get(i)*100,  i+1, 50  + ping.left.get(i+1)*100);
   }
   
+}
+
+// niveau volume
+void keyPressed(){
+  if (key == '+')
+    ping.setGain(volume ++);
+  if (key == '-')
+    ping.setGain(volume --);
+  
+  if (key == ' ')
+   ping.pause();
+  if (key == 'p')
+   ping.play();
 }
 
 // mouseWheel() est appelée nativement par draw()
