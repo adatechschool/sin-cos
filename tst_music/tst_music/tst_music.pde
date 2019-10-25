@@ -18,14 +18,14 @@ float volume = 0.5;
 int decalageVertical;
 
 void setup() {
-  size(600, 200);
+  size(600, 800);
   background(0);
   noFill();
   
   decalageVertical = height / 2;
   
   minim = new Minim(this);
-  ping = minim.loadFile("Old_Town_Road.mp3", 2048);
+  ping = minim.loadFile("Cant_Keep_Me_Down.mp3", 2048);
 }
 
 void draw() {
@@ -41,9 +41,19 @@ void draw() {
 
   // ligne qui bouge selon le son
    clear();
+     for(int i = 0; i < 100; i = i + 10)
+  {
+    float choix = random(5);
+    int[] entiers = {100, 200, 300, 400, 500};
+    if (int(choix) == 3)
+    {
+    fill(random(255), random(155), random(200));
+    }
+    ellipse(entiers[int(choix)], entiers[int(choix)] + ping.left.get(i)*200,  i+1, ping.left.get(i+1)*200);
+  }
   for(int i = 0; i < ping.bufferSize() - 1; i++)
   {
-    line(i, height/2  + ping.left.get(i)*100,  i+1, 50  + ping.left.get(i+1)*100);
+    line(i, 400  + ping.left.get(i)*100,  i+1, 350  + ping.left.get(i+1)*100);
   }
   
 }
@@ -55,6 +65,7 @@ void keyPressed(){
   if (key == '-')
     ping.setGain(volume --);
   
+// arreter et reprendre musique
   if (key == ' ')
    ping.pause();
   if (key == 'p')
