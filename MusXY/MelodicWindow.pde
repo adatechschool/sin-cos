@@ -1,8 +1,9 @@
 class MelodicWindow extends Window {
- MelodicWindow(PApplet main){
-   bip = new SinOsc(main);
+ MelodicWindow (String name) {
+   super(name);
+   bip = new SinOsc(this);
  }
- void express_yourself() {
+ void draw() {
   // gestion des événements
   if (mousePressed)  {
     frequence = constrain(mouseX, 1, width);
