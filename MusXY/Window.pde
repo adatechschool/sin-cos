@@ -5,11 +5,11 @@ class Window extends PApplet {
   int nombrePeriode = 1; // à afficher sur la fenêtre
 
   int decalageVertical;
-  
+
   Window () {
     super();
     PApplet.runSketch(new String[] {this.getClass().getName()}, this); // à retravailer
-    
+
   }
   void settings() {
     size(600, 200);

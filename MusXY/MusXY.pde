@@ -9,8 +9,8 @@ void setup() {
   background(0);
   stroke(127, 255, 127);
   noFill();
-  coyote = new MelodicWindow(this);
-  bipbip = new MelodicWindow(this);
+  coyote = new MelodicWindow();
+  bipbip = new MelodicWindow();
 }
 
 void draw() {
