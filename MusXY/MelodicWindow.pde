@@ -1,7 +1,8 @@
 class MelodicWindow extends Window {
- MelodicWindow (String name) {
-   super(name);
-   bip = new SinOsc(this);
+ SinOsc bip; // SinOsc = Sine Oscillator
+ MelodicWindow (PApplet main) {
+   super();
+   bip = new SinOsc(main);
  }
  void draw() {
   // gestion des événements

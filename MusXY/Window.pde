@@ -1,15 +1,14 @@
 class Window extends PApplet {
-  PGraphics display;
 
   int frequence = 1;
   int intensite = 0;
   int nombrePeriode = 1; // à afficher sur la fenêtre
 
-  int decalageVertical = height / 2;
+  int decalageVertical;
   
-  Window (String name) {
+  Window () {
     super();
-    PApplet.runSketch(new String[] {name}, this);
+    PApplet.runSketch(new String[] {this.getClass().getName()}, this); // à retravailer
     
   }
   void settings() {
@@ -19,5 +18,6 @@ class Window extends PApplet {
     background(0);
     stroke(127, 255, 127);
     noFill();
+    decalageVertical = height / 2;
   }
 }
