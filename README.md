@@ -1,2 +1,4 @@
-# sin-cos
-(Fayal,Adriel,Wara)
+# sin-cos++
+
+refacto...
+
