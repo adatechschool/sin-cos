@@ -21,7 +21,11 @@ void setup() {
   };
   master_interface = new UI("DejaVu Sans", 16, uiColors);
   master_interface.newSimpleButton(10, 10, 100, 40, "Coucou");
-  master_interface.newSimpleButton(10, 60, 100, 40, "Chouette trop long");
+  master_interface.newSimpleButton(120, 10, 400, 40, "Ceci est une phrase.");
+  master_interface.newSimpleButton(10, 60, 100, 40, "Chouette");
+  master_interface.newSimpleButton(120, 60, 400, 40, "Pointless");
+  master_interface.newSimpleButton(10, 110, 100, 40, "Anticonstitutionnellement");
+  master_interface.newSimpleButton(120, 110, 400, 40, "Anticonstitutionnellement");
 }
 
 void draw() {
