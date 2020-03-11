@@ -31,3 +31,7 @@ void setup() {
 void draw() {
   master_interface.update();
 }
+
+void mouseClicked() {
+  master_interface.click();
+}

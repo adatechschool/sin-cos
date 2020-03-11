@@ -11,7 +11,7 @@ class UI {
   }
   
   void newSimpleButton(int x, int y, int w, int h, String text) {
-    simpleButtonList.add(new Button(x, y, w, h, text));
+    simpleButtonList.add(new Button(x, y, w, h, fontSize, uiFont, text));
   }
   
   void newSimpleField(int x, int y, int w, int h, String text) {
@@ -20,7 +20,13 @@ class UI {
   
   void update() {
     for (Button button: simpleButtonList) {
-      button.update(uiFont, fontSize, colorTheme);
+      button.hover(colorTheme);
+    }
+  }
+  
+  void click() {
+    for (Button button: simpleButtonList) {
+      button.isClicked();
     }
   }
 }

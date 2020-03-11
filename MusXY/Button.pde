@@ -1,31 +1,34 @@
 class Button {
-  int x, y, w, h;
+  int x, y, w, h, textSize;
   String text;
-  Button (int _x, int _y, int _w, int _h, String insertTextHere) {
-    x = _x;
-    y = _y;
-    w = _w;
-    h = _h;
+  PFont textFont;
+  boolean state = false;
+  Button (int _x, int _y, int _w, int _h, int size, PFont font, String insertTextHere) {
+    x = _x; y = _y; w = _w; h = _h;
+    textSize = size;
+    textFont = font;
     text = insertTextHere;
   }
   
-  void update(PFont font, int size, color[] colors) {
-    fill(colors[moused()]);
-    stroke(colors[moused()]);
+  void hover(color[] colors) {
+    display(colors[3], colors[int(touched()) + int(touched() ? mousePressed:false)]);
+  }
+  
+  void isClicked() {
+    if (touched()) state = !state;
+  }
+  
+  private void display(color textColor, color rectColor) {
+    fill(rectColor); stroke(rectColor);
     rect(x, y, w, h, 20);
-    textFont(font, size);
+
+    fill(textColor); stroke(textColor);
     textAlign(CENTER, CENTER);
-    fill(colors[3]);
+    textFont(textFont, textSize);
     text(text, x, y, w, h);
   }
 
-  private int moused() {
-    if (((mouseX > x) && (mouseX < x + w)) && ((mouseY > y) && (mouseY < y + h))) {
-      if(mousePressed) {
-        return 2;
-      }
-      return 1;
-    }
-    return 0;
+  private boolean touched() {
+    return (mouseX > x) && (mouseX < x + w) && (mouseY > y) && (mouseY < y + h);
   }
 }
