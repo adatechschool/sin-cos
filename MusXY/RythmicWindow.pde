@@ -6,10 +6,10 @@ class RythmicWindow extends Window {
   }
   void draw() {
     if (mousePressed)  {
-      frequence = constrain(mouseX, 1, width);
+      frequence = constrain(mouseX, 0, width);
       intensite = height - constrain(mouseY, 0, height) - decalageVertical;
 
-      ting.play();
+      ting.play(map(frequence, 0, width, 0.9, 20), norm(intensite, 0, height));
 
     }
 
