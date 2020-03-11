@@ -9,7 +9,7 @@ class Window extends PApplet {
   Window () {
     super();
     PApplet.runSketch(new String[] {this.getClass().getName()}, this); // à retravailer
-
+    //surface.setTitle("coyotte");
   }
   void settings() {
     size(600, 200);

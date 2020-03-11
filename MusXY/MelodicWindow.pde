@@ -1,15 +1,15 @@
 class MelodicWindow extends Window {
-  SinOsc bip;
+  TriOsc bip;
   MelodicWindow () {
     super();
-    bip = new SinOsc(this);
+    bip = new TriOsc(this);
   }
   void draw() {
     if (mousePressed)  {
       frequence = constrain(mouseX, 1, width);
       intensite = height - constrain(mouseY, 0, height) - decalageVertical;
 
-      bip.play(map(frequence, 0, width, 20, 20000), norm(intensite, 0, height));
+      bip.play(map(frequence, 0, width, 0.9, 200), norm(intensite, 0, height));
 
     }
 
