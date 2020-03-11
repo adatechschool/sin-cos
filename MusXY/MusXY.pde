@@ -7,7 +7,6 @@ void settings() {
 
 void setup() {
   background(0);
-  stroke(127, 255, 127);
   noFill();
   mainInterface = new UI("DejaVu Sans", 16, new color[] { #509050, #408040, #404040, #FFFFFF });
   mainInterface.newSimpleButton(10, 10, 100, 40, "Coucou");
