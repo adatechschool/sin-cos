@@ -1,7 +1,7 @@
 class MelodicWindow extends Window {
   TriOsc bip;
-  MelodicWindow () {
-    super();
+  MelodicWindow (String name) {
+    super(name);
     bip = new TriOsc(this);
   }
   void draw() {

@@ -6,10 +6,10 @@ class Window extends PApplet {
 
   int decalageVertical;
 
-  Window () {
+  Window (String name) {
     super();
-    PApplet.runSketch(new String[] {this.getClass().getName()}, this); // à retravailer
-    //surface.setTitle("coyotte");
+    PApplet.runSketch(new String[] {this.getClass().getName()}, this);
+    surface.setTitle(name);
   }
   void settings() {
     size(600, 200);

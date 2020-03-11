@@ -19,14 +19,10 @@ class UI {
   }
   
   void update() {
-    for (Button button: simpleButtonList) {
-      button.hover(colorTheme);
-    }
+    for (Button button: simpleButtonList) button.hover(colorTheme);
   }
   
   void click() {
-    for (Button button: simpleButtonList) {
-      button.isClicked();
-    }
+    for (Button button: simpleButtonList) button.isClicked();
   }
 }

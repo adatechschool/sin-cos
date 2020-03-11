@@ -1,7 +1,7 @@
 class RythmicWindow extends Window {
   Pulse ting;
-  RythmicWindow () {
-    super();
+  RythmicWindow (String name) {
+    super(name);
     ting = new Pulse(this);
   }
   void draw() {
