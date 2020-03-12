@@ -3,6 +3,7 @@ class Button {
   String text;
   PFont textFont;
   boolean state = false;
+
   Button (int _x, int _y, int _w, int _h, int size, PFont font, String insertTextHere) {
     x = _x; y = _y; w = _w; h = _h;
     textSize = size;
@@ -11,14 +12,12 @@ class Button {
   }
   
   void hover(color[] colors) {
+    state = mousePressed && touched();
+    println(state);
     display(colors[3], colors[int(touched()) + int(touched() ? mousePressed:false)]);
   }
-  
-  void isClicked() {
-    if (touched()) state = !state;
-  }
-  
-  private void display(color textColor, color rectColor) {
+
+  void display(color textColor, color rectColor) {
     fill(rectColor); stroke(rectColor);
     rect(x, y, w, h, 20);
 

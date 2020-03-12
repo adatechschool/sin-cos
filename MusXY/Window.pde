@@ -1,5 +1,4 @@
 class Window extends PApplet {
-
   int frequence = 1, intensite = 0, nombrePeriode = 2;
   int decalageVertical;
 
@@ -14,13 +13,13 @@ class Window extends PApplet {
 
   void settings() {
     size(600, 200);
+    decalageVertical = height / 2;
   }
 
   void setup(){
     background(0);
     stroke(127, 255, 127);
     noFill();
-    decalageVertical = height / 2;
   }
 
   void draw() {
